@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)dm_imageWithLightImage:(UIImage *)lightImage darkImage:(UIImage *)darkImage
 NS_SWIFT_UNAVAILABLE("Use init(_:light:dark:) instead.");
-- (UIColor *)dm_resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection
-NS_SWIFT_UNAVAILABLE("Use resolvedColor(_:with:) instead.");
+- (UIImage *)dm_resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection
+NS_SWIFT_UNAVAILABLE("Use resolvedImage(_:with:) instead.");
 
 #if __swift__
 + (UIImage *)dm_namespace:(DMNamespace)namespace

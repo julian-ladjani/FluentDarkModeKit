@@ -40,6 +40,10 @@
   return [UIImage dm_imageWithLightImage:lightImage darkImage:darkImage];
 }
 
+- (UIImage *)dm_namespace:(DMNamespace)namespace resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection {
+  return [self dm_resolvedImageWithTraitCollection:traitCollection];
+}
+
 - (UIImage *)dm_resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection {
   if (@available(iOS 13.0, *)) {
     // Here we just need to take care of UIImage that is not DMDynamicImage
