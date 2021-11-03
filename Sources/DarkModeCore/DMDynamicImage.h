@@ -3,6 +3,8 @@
 //  Licensed under the MIT License.
 //
 
+#import "DMTraitCollection.h"
+
 @import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -12,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UIImage *resolvedImage;
 
 - (instancetype)initWithLightImage:(UIImage *)lightImage darkImage:(UIImage *)darkImage;
+- (UIImage *)resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection
+NS_SWIFT_UNAVAILABLE("Use resolvedImage(_:with:) instead.");
 
 @end
 

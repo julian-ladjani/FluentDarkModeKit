@@ -42,6 +42,9 @@
     // since DMDynamicColor methods are all forwarded
     return [self resolvedColorWithTraitCollection:traitCollection.uiTraitCollection];
   }
+  if([self isKindOfClass:[DMDynamicColor class]]) {
+    return [(DMDynamicColor *)self dm_resolvedColorWithTraitCollection:traitCollection];
+  }
   return self;
 }
 

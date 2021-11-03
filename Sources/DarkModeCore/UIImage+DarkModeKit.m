@@ -40,4 +40,19 @@
   return [UIImage dm_imageWithLightImage:lightImage darkImage:darkImage];
 }
 
+- (UIImage *)dm_resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection {
+  if (@available(iOS 13.0, *)) {
+    // Here we just need to take care of UIImage that is not DMDynamicImage
+    // since DMDynamicImage methods are all forwarded
+    if (self.imageAsset == NULL) {
+      return self;
+    }
+    return [self.imageAsset imageWithTraitCollection:traitCollection.uiTraitCollection];
+  }
+  if([self isKindOfClass:[DMDynamicImageProxy class]]) {
+    return [(DMDynamicImageProxy *)self resolvedImageWithTraitCollection:traitCollection];
+  }
+  return self;
+}
+
 @end

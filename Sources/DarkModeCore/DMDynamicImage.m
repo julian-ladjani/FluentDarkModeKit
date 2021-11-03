@@ -43,6 +43,13 @@
   return self.lightImage;
 }
 
+- (UIImage *)resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection {
+  if (traitCollection.userInterfaceStyle == DMUserInterfaceStyleDark) {
+    return self.darkImage;
+  }
+  return self.lightImage;
+}
+
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)sel {
   return [self.resolvedImage methodSignatureForSelector:sel];
 }

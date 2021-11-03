@@ -21,6 +21,7 @@ NS_SWIFT_UNAVAILABLE("Use init(_:light:dark:) instead.");
 + (UIImage *)dm_namespace:(DMNamespace)namespace
       imageWithLightImage:(UIImage *)lightImage
                 darkImage:(UIImage *)darkImage NS_SWIFT_NAME(init(_:light:dark:));
+- (UIImage *)dm_namespace:(DMNamespace)namespace resolvedIImageWithTraitCollection:(DMTraitCollection *)traitCollection NS_SWIFT_NAME(resolvedImage(_:with:));
 #endif
 
 @end
