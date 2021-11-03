@@ -18,6 +18,7 @@
 @implementation DMDynamicImageProxy
 
 - (instancetype)initWithLightImage:(UIImage *)lightImage darkImage:(UIImage *)darkImage {
+  self = [self init];
   self.lightImage = lightImage;
   self.darkImage = darkImage;
   // For now, we don't support `nil` images as it will cause bad result

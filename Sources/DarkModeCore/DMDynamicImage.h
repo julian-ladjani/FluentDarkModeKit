@@ -9,13 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DMDynamicImageProxy : NSProxy
+@interface DMDynamicImageProxy : UIImage
 
 @property (nonatomic, readonly) UIImage *resolvedImage;
 
 - (instancetype)initWithLightImage:(UIImage *)lightImage darkImage:(UIImage *)darkImage;
-- (UIImage *)resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection
-NS_SWIFT_UNAVAILABLE("Use resolvedImage(_:with:) instead.");
+- (UIImage *)resolvedImageWithTraitCollection:(DMTraitCollection *)traitCollection;
 
 @end
 

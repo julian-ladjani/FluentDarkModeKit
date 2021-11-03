@@ -16,7 +16,6 @@
   if (@available(iOS 13, *)) {
     if ([UIImage useUIImageAsset]) {
       UIImageAsset *imageAsset = [[UIImageAsset alloc] init];
-
       // Always specify a displayScale otherwise a default of 1.0 is assigned
       [imageAsset registerImage:lightImage withTraitCollection:[UITraitCollection traitCollectionWithTraitsFromCollections:@[
         [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleLight],
@@ -30,7 +29,6 @@
       return [imageAsset imageWithTraitCollection:DMTraitCollection.overrideTraitCollection.uiTraitCollection];
     }
   }
-
   return (UIImage *)[[DMDynamicImageProxy alloc] initWithLightImage:lightImage darkImage:darkImage];
 }
 
@@ -48,12 +46,11 @@
   if (@available(iOS 13.0, *)) {
     // Here we just need to take care of UIImage that is not DMDynamicImage
     // since DMDynamicImage methods are all forwarded
-    if (self.imageAsset == NULL) {
-      return self;
+    if ([UIImage useUIImageAsset] || ![self isKindOfClass:[DMDynamicImageProxy class]]) {
+      return [self imageWithConfiguration:traitCollection.uiTraitCollection.imageConfiguration];
     }
-    return [self.imageAsset imageWithTraitCollection:traitCollection.uiTraitCollection];
   }
-  if([self isKindOfClass:[DMDynamicImageProxy class]]) {
+  if ([self isKindOfClass:[DMDynamicImageProxy class]]) {
     return [(DMDynamicImageProxy *)self resolvedImageWithTraitCollection:traitCollection];
   }
   return self;
