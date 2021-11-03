@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DMDynamicImageProxy : UIImage
+@interface DMDynamicImageProxy : NSProxy
 
 @property (nonatomic, readonly) UIImage *resolvedImage;
 
